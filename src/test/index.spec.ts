@@ -5,7 +5,7 @@ import app from "../index";
 const request = supertest(app);
 
 describe("Testing the main route endpoint response", () => {
-  it("response status: 200, gives a welcome message", async () => {
+  it("response status: 200, display welcome page", async () => {
     const response = await request.get("/");
     expect(response.status).toBe(200);
   });
@@ -35,7 +35,7 @@ describe("Testing the image route endpoint response", () => {
     );
   });
 
-  it("Returns 'Width or height is not valid' error when width or height is not valid or not a number", async () => {
+  it("Returns 'Width or height is not valid' error when width or height is not valid", async () => {
     const response = await request.get(
       "/image?filename=fjord&width=500&height=test"
     );
@@ -55,5 +55,14 @@ describe("Testing image processing", () => {
     expect(
       !fs.ensureFile("../../assets/resized_images/fjord-400-400.jpg")
     ).toBeFalse();
+  });
+
+  it("create folder for resized images if not exists", async () => {
+    expect(fs.ensureDir("../../assets/resized_images"));
+  });
+
+  it("Displays the image without resizing", async () => {
+    const response = await request.get("/image?filename=fjord");
+    expect(response.status).toBe(200);
   });
 });

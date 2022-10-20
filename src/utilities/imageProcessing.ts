@@ -25,18 +25,18 @@ const imageProcessing = async (
     "/resized_images"
   );
 
-  // checking if the processed images folder exists or not
-  if (!fs.ensureDir(resizedImagesFolder)) {
-    await fs.mkdir(resizedImagesFolder);
-  }
-
   // display the image without resizing
   if (!width && !height) {
     return myImage;
   }
 
-  // cache [ checking if the resized image already exists or not ]
+  // checking if the resized image already exists or not
   if (!fs.existsSync(resizedImage)) {
+    // checking if the processed images folder exists or not
+    if (!fs.ensureDir(resizedImagesFolder)) {
+      await fs.mkdir(resizedImagesFolder);
+    }
+
     try {
       await sharp(myImage).resize(width, height).toFile(resizedImage);
       return resizedImage;

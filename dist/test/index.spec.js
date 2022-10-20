@@ -44,7 +44,7 @@ var fs_extra_1 = __importDefault(require("fs-extra"));
 var index_1 = __importDefault(require("../index"));
 var request = (0, supertest_1.default)(index_1.default);
 describe("Testing the main route endpoint response", function () {
-    it("response status: 200, gives a welcome message", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it("response status: 200, display welcome page", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -96,7 +96,7 @@ describe("Testing the image route endpoint response", function () {
             }
         });
     }); });
-    it("Returns 'Width or height is not valid' error when width or height is not valid or not a number", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it("Returns 'Width or height is not valid' error when width or height is not valid", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -120,6 +120,24 @@ describe("Testing image processing", function () {
                     response = _a.sent();
                     expect(response.status).toBe(200);
                     expect(!fs_extra_1.default.ensureFile("../../assets/resized_images/fjord-400-400.jpg")).toBeFalse();
+                    return [2];
+            }
+        });
+    }); });
+    it("create folder for resized images if not exists", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            expect(fs_extra_1.default.ensureDir("../../assets/resized_images"));
+            return [2];
+        });
+    }); });
+    it("Displays the image without resizing", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, request.get("/image?filename=fjord")];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
                     return [2];
             }
         });

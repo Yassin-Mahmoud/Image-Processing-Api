@@ -51,29 +51,27 @@ var imageProcessing = function (filename, width, height) { return __awaiter(void
                 resizedImage = path_1.default.join(__dirname, "../", "../", "/assets", "/resized_images", filename) +
                     "-".concat(width, "-").concat(height, ".jpg");
                 resizedImagesFolder = path_1.default.join(__dirname, "../", "../", "/assets", "/resized_images");
+                if (!width && !height) {
+                    return [2, myImage];
+                }
+                if (!!fs_extra_1.default.existsSync(resizedImage)) return [3, 6];
                 if (!!fs_extra_1.default.ensureDir(resizedImagesFolder)) return [3, 2];
                 return [4, fs_extra_1.default.mkdir(resizedImagesFolder)];
             case 1:
                 _a.sent();
                 _a.label = 2;
             case 2:
-                if (!width && !height) {
-                    return [2, myImage];
-                }
-                if (!!fs_extra_1.default.existsSync(resizedImage)) return [3, 7];
-                _a.label = 3;
-            case 3:
-                _a.trys.push([3, 5, , 6]);
+                _a.trys.push([2, 4, , 5]);
                 return [4, (0, sharp_1.default)(myImage).resize(width, height).toFile(resizedImage)];
-            case 4:
+            case 3:
                 _a.sent();
                 return [2, resizedImage];
-            case 5:
+            case 4:
                 err_1 = _a.sent();
                 return [2, ""];
-            case 6: return [3, 8];
-            case 7: return [2, resizedImage];
-            case 8: return [2];
+            case 5: return [3, 7];
+            case 6: return [2, resizedImage];
+            case 7: return [2];
         }
     });
 }); };

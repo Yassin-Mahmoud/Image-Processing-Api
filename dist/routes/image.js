@@ -53,26 +53,31 @@ routes.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 width = Number(req.query.width);
                 height = Number(req.query.height);
                 myImage = path_1.default.join(__dirname, "../", "../", "/assets", "/images", filename) + ".jpg";
-                if (!fs_extra_1.default.existsSync(myImage)) {
-                    res
-                        .status(404)
-                        .send("<h3>Image not found,</h3> please check image name and try again");
-                }
-                _c.label = 1;
+                if (!!filename) return [3, 1];
+                res.status(405).send("<h4>Please enter filename</h4>");
+                return [3, 5];
             case 1:
-                _c.trys.push([1, 3, , 4]);
-                _b = (_a = res.status(200)).sendFile;
-                return [4, (0, imageProcessing_1.default)(filename, width, height)];
+                if (!!fs_extra_1.default.existsSync(myImage)) return [3, 2];
+                res
+                    .status(404)
+                    .send("<h3>Image not found,</h3> please check image name and try again");
+                return [3, 5];
             case 2:
-                _b.apply(_a, [_c.sent()]);
-                return [3, 4];
+                _c.trys.push([2, 4, , 5]);
+                _b = (_a = res
+                    .status(200))
+                    .sendFile;
+                return [4, (0, imageProcessing_1.default)(filename, width, height)];
             case 3:
+                _b.apply(_a, [_c.sent()]);
+                return [3, 5];
+            case 4:
                 err_1 = _c.sent();
                 res
                     .status(405)
                     .send("<h3>Width or hight is not valide,</h3> Please enter valid width and height");
-                return [3, 4];
-            case 4: return [2];
+                return [3, 5];
+            case 5: return [2];
         }
     });
 }); });

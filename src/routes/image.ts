@@ -15,21 +15,29 @@ routes.get("/", async (req: Request, res: Response) => {
   const myImage =
     path.join(__dirname, "../", "../", "/assets", "/images", filename) + ".jpg";
 
-  // checking if the full image exists or not
-  if (!fs.existsSync(myImage)) {
-    res
-      .status(404)
-      .send("<h3>Image not found,</h3> please check image name and try again");
-  }
-
-  try {
-    res.status(200).sendFile(await imageProcessing(filename, width, height));
-  } catch (err) {
-    res
-      .status(405)
-      .send(
-        "<h3>Width or hight is not valide,</h3> Please enter valid width and height"
-      );
+  if (!filename) {
+    res.status(405).send("<h4>Please enter filename</h4>");
+  } else {
+    // checking if the full image exists or not
+    if (!fs.existsSync(myImage)) {
+      res
+        .status(404)
+        .send(
+          "<h3>Image not found,</h3> please check image name and try again"
+        );
+    } else {
+      try {
+        res
+          .status(200)
+          .sendFile(await imageProcessing(filename, width, height));
+      } catch (err) {
+        res
+          .status(405)
+          .send(
+            "<h3>Width or hight is not valide,</h3> Please enter valid width and height"
+          );
+      }
+    }
   }
 });
 
