@@ -1,10 +1,10 @@
 # Image Processing Api
-#### display resize images with .jpg file extenstion
+#### display and resize images with .jpg file extenstion
 
 ## Endpoints
 
 ### main endpoint
-####http://localhost:3000/
+#### http://localhost:3000/
 
 ### image endpoint
 
