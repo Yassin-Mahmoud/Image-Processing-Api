@@ -1,19 +1,17 @@
 import supertest from "supertest";
+import fs from "fs-extra";
 import app from "../index";
 
 const request = supertest(app);
 
-describe("Testing the main page endpoint response", () => {
-  it("Gives a welcome message", async () => {
+describe("Testing the main route endpoint response", () => {
+  it("response status: 200, gives a welcome message", async () => {
     const response = await request.get("/");
     expect(response.status).toBe(200);
-    expect(response.text).toBe(
-      "<h2>Welcome to Yassin's 'Image Processing' Api</h2>"
-    );
   });
 });
 
-describe("Testing the image endpoint response", () => {
+describe("Testing the image route endpoint response", () => {
   it("Returns the resized image without errors if all parameters are set", async () => {
     const response = await request.get(
       "/image?filename=fjord&width=200&height=200"
@@ -48,6 +46,14 @@ describe("Testing the image endpoint response", () => {
   });
 });
 
-// describe("Testing image processing", () => {
-//   it("", async () => {});
-// });
+describe("Testing image processing", () => {
+  it("Resizes the image without any errors", async () => {
+    const response = await request.get(
+      "/image?filename=fjord&width=400&height=400"
+    );
+    expect(response.status).toBe(200);
+    expect(
+      !fs.ensureFile("../../assets/resized_images/fjord-400-400.jpg")
+    ).toBeFalse();
+  });
+});

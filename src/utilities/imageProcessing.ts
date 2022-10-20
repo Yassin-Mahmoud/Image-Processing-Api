@@ -30,6 +30,7 @@ const imageProcessing = async (
     await fs.mkdir(resizedImagesFolder);
   }
 
+  // display the image without resizing
   if (!width && !height) {
     return myImage;
   }
