@@ -5,7 +5,7 @@ const app: Application = express();
 const PORT = 3000;
 
 // logger middleware
-//app.use(morgan("dev"));
+app.use(morgan("dev"));
 
 // main page
 import main from "./routes/main";

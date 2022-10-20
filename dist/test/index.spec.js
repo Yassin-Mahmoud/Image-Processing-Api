@@ -70,7 +70,7 @@ describe("Testing the image endpoint response", function () {
             }
         });
     }); });
-    it("Returns 'image not found (404)' error when the filename is not valid", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it("Returns 'image not found (404)' error when no parameters are set", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -91,11 +91,12 @@ describe("Testing the image endpoint response", function () {
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(404);
+                    expect(response.text).toBe("<h3>Image not found,</h3> please check image name and try again");
                     return [2];
             }
         });
     }); });
-    it("Returns 'Width or height is not valid' error when width or height is not valid", function () { return __awaiter(void 0, void 0, void 0, function () {
+    it("Returns 'Width or height is not valid' error when width or height is not valid or not a number", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -103,8 +104,16 @@ describe("Testing the image endpoint response", function () {
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(405);
+                    expect(response.text).toBe("<h3>Width or hight is not valide,</h3> Please enter valid width and height");
                     return [2];
             }
+        });
+    }); });
+});
+describe("Testing image processing", function () {
+    it("", function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2];
         });
     }); });
 });

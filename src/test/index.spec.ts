@@ -48,8 +48,6 @@ describe("Testing the image endpoint response", () => {
   });
 });
 
-describe("Testing image processing", () => {
-  it("", async () => {
-    
-  })
-})
+// describe("Testing image processing", () => {
+//   it("", async () => {});
+// });
