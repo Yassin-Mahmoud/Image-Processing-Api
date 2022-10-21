@@ -41,7 +41,7 @@ const imageProcessing = async (
       await sharp(myImage).resize(width, height).toFile(resizedImage);
       return resizedImage;
     } catch (err) {
-      return "";
+      return "Please check information you entered and try again" as string;
     }
   } else {
     return resizedImage;

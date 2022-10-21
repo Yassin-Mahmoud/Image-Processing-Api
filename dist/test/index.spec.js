@@ -42,6 +42,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var supertest_1 = __importDefault(require("supertest"));
 var fs_extra_1 = __importDefault(require("fs-extra"));
 var index_1 = __importDefault(require("../index"));
+var imageProcessing_1 = __importDefault(require("../utilities/imageProcessing"));
+var path_1 = __importDefault(require("path"));
 var request = (0, supertest_1.default)(index_1.default);
 describe("Testing the main route endpoint response", function () {
     it("response status: 200, display welcome page", function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -109,8 +111,18 @@ describe("Testing the image route endpoint response", function () {
             }
         });
     }); });
-});
-describe("Testing image processing", function () {
+    it("Displays the image without resizing", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, request.get("/image?filename=fjord")];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    return [2];
+            }
+        });
+    }); });
     it("Resizes the image without any errors", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
@@ -124,23 +136,33 @@ describe("Testing image processing", function () {
             }
         });
     }); });
-    it("create folder for resized images if not exists", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            expect(fs_extra_1.default.ensureDir("../../assets/resized_images"));
-            return [2];
-        });
-    }); });
-    it("Displays the image without resizing", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4, request.get("/image?filename=fjord")];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2];
-            }
-        });
-    }); });
 });
+describe("Testing image processing", function () { return __awaiter(void 0, void 0, void 0, function () {
+    var myImage, width, height;
+    return __generator(this, function (_a) {
+        myImage = path_1.default.join(__dirname, "../", "../", "/assets", "/images", "/fjord.jpg");
+        width = 400;
+        height = 400;
+        it("create folder for resized images if not exists", function () { return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                expect(fs_extra_1.default.ensureDir("../../assets/resized_images"));
+                return [2];
+            });
+        }); });
+        it("The processing function works without errors", function () {
+            expect(function () { return __awaiter(void 0, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4, (0, imageProcessing_1.default)(myImage, width, height)];
+                        case 1: return [4, _a.sent()];
+                        case 2:
+                            _a.sent();
+                            return [2];
+                    }
+                });
+            }); }).not.toThrow();
+        });
+        return [2];
+    });
+}); });
 //# sourceMappingURL=index.spec.js.map

@@ -68,7 +68,7 @@ var imageProcessing = function (filename, width, height) { return __awaiter(void
                 return [2, resizedImage];
             case 4:
                 err_1 = _a.sent();
-                return [2, ""];
+                return [2, "Please check information you entered and try again"];
             case 5: return [3, 7];
             case 6: return [2, resizedImage];
             case 7: return [2];

@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import path from "path";
 const routes = express.Router();
 
-routes.get("/", (req: Request, res: Response) => {
+routes.get("/", (req: Request, res: Response): void => {
   res.status(200).sendFile(path.join(__dirname, "../../main.html"));
 });
 

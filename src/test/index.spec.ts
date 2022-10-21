@@ -1,6 +1,8 @@
 import supertest from "supertest";
 import fs from "fs-extra";
 import app from "../index";
+import imageProcessing from "../utilities/imageProcessing";
+import path from "path";
 
 const request = supertest(app);
 
@@ -44,9 +46,12 @@ describe("Testing the image route endpoint response", () => {
       "<h3>Width or hight is not valide,</h3> Please enter valid width and height"
     );
   });
-});
 
-describe("Testing image processing", () => {
+  it("Displays the image without resizing", async () => {
+    const response = await request.get("/image?filename=fjord");
+    expect(response.status).toBe(200);
+  });
+
   it("Resizes the image without any errors", async () => {
     const response = await request.get(
       "/image?filename=fjord&width=400&height=400"
@@ -56,13 +61,27 @@ describe("Testing image processing", () => {
       !fs.ensureFile("../../assets/resized_images/fjord-400-400.jpg")
     ).toBeFalse();
   });
+});
+
+describe("Testing image processing", async () => {
+  const myImage = path.join(
+    __dirname,
+    "../",
+    "../",
+    "/assets",
+    "/images",
+    "/fjord.jpg"
+  );
+  const width = 400;
+  const height = 400;
 
   it("create folder for resized images if not exists", async () => {
     expect(fs.ensureDir("../../assets/resized_images"));
   });
 
-  it("Displays the image without resizing", async () => {
-    const response = await request.get("/image?filename=fjord");
-    expect(response.status).toBe(200);
+  it("The processing function works without errors", () => {
+    expect(async () => {
+      await await imageProcessing(myImage, width, height);
+    }).not.toThrow();
   });
 });

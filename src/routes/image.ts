@@ -12,7 +12,7 @@ routes.get("/", async (req: Request, res: Response) => {
   const width = Number(req.query.width);
   const height = Number(req.query.height);
 
-  const myImage =
+  const myImage: string =
     path.join(__dirname, "../", "../", "/assets", "/images", filename) + ".jpg";
 
   if (!filename) {
