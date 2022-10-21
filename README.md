@@ -23,12 +23,12 @@
 ##### * *palmtunnel*
 
 ## Scripts:
-### --> npm run [script] <--
-### [ dev ] : run the ts file with nodemon
-### [ build ] : compile ts to js
-### [ start ] : compile ts to js and run the js file
-### [ lint ] :  identifying and reporting on patterns with eslint
-### [ lint-fix ] : fix errors with eslint
-### [ prettier ] : run prettier
-### [ jasmine ] : run jasmine for testing 
-### [ test ] : compile ts to js and run jasmine for testing
+#### --> npm run [script] <--
+#### [ dev ] : run the ts file with nodemon
+#### [ build ] : compile ts to js
+#### [ start ] : compile ts to js and run the js file
+#### [ lint ] :  identifying and reporting on patterns with eslint
+#### [ lint-fix ] : fix errors with eslint
+#### [ prettier ] : run prettier
+#### [ jasmine ] : run jasmine for testing 
+#### [ test ] : compile ts to js and run jasmine for testing
