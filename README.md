@@ -1,6 +1,6 @@
 # Image Processing Api
 
-#### display and resize images with .jpg file extenstion
+#### display and resize images with .jpg file extension
 
 ## Endpoints:
 
@@ -20,7 +20,7 @@
 
 ---> width and height must be a number more than 0 <---
 
-### **Avilable images:**
+### **Available images:**
 
 ##### \* _encenadaport_
 
@@ -57,3 +57,5 @@
 ##### \* you can display the image without resizing by typing only filename
 
 ##### \* if you want to resize an image you have to enter both width and height
+
+##### \* images only .jpg extension will work
