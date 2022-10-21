@@ -23,7 +23,7 @@
 ##### * *palmtunnel*
 
 ## Scripts:
-#### --> npm run [script] <--
+#### --> npm run scriptname <--
 #### [   dev    ] : run the ts file with nodemon
 #### [  build   ] : compile ts to js
 #### [   start  ] : compile ts to js and run the js file
