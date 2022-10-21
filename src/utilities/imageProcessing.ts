@@ -32,7 +32,7 @@ const imageProcessing = async (
 
   // checking if the resized image already exists or not
   if (!fs.existsSync(resizedImage)) {
-    // checking if the processed images folder exists or not
+    // checking if the resized images folder exists or not
     if (!fs.ensureDir(resizedImagesFolder)) {
       await fs.mkdir(resizedImagesFolder);
     }
