@@ -56,6 +56,6 @@
 
 ##### \* you can display the image without resizing by typing only filename
 
-##### \* if you want to resize an image you have to enter both width and height
+##### \* if you want to resize an image you have to enter filename and both width and height
 
 ##### \* images only with .jpg extension will work
