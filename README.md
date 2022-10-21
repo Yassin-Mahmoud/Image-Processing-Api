@@ -16,10 +16,10 @@
 ---> width and height must be a number more than 0 <---
 
 ### **Avilable images:**
-##### * encenadaport
-##### * fjord
-##### * icelandwaterfall
-##### * santamonica
-##### * palmtunnel
+##### *encenadaport
+##### *fjord
+##### *icelandwaterfall
+##### *santamonica
+##### *palmtunnel
 
 ## Scripts:
