@@ -20,7 +20,7 @@
 
 ---> width and height must be a number more than 0 <---
 
-### **Available images:**
+### - **Available images:**
 
 ##### \* _encenadaport_
 
