@@ -16,7 +16,7 @@
 ---> width and height must be a number more than 0 <---
 
 ### **Avilable images:**
-##### *encenadaport
+##### *encenadaport*
 ##### *fjord
 ##### *icelandwaterfall
 ##### *santamonica
