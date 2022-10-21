@@ -22,15 +22,15 @@
 
 ### - **Available images:**
 
-##### \* _encenadaport_
+    ##### \* _encenadaport_
 
-##### \* _fjord_
+    ##### \* _fjord_
 
-##### \* _icelandwaterfall_
+    ##### \* _icelandwaterfall_
 
-##### \* _santamonica_
+    ##### \* _santamonica_
 
-##### \* _palmtunnel_
+    ##### \* _palmtunnel_
 
 ## Scripts:
 
