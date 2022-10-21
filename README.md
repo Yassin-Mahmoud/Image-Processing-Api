@@ -52,7 +52,7 @@
 
 #### [ test ] : compile ts to js and run jasmine for testing
 
-### Notes:
+## Notes:
 
 ##### \* you can display the image without resizing by typing only filename
 
