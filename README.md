@@ -4,11 +4,11 @@
 
 ## Endpoints:
 
-### **main endpoint**
+### - **Main endpoint**
 
 #### http://localhost:3000/
 
-### **image endpoint**
+### - **Image endpoint**
 
 #### [ to display original image ]:
 
