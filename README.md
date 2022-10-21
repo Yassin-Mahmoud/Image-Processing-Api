@@ -58,4 +58,4 @@
 
 ##### \* if you want to resize an image you have to enter both width and height
 
-##### \* images only .jpg extension will work
+##### \* images only with .jpg extension will work
