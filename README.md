@@ -3,10 +3,10 @@
 
 ## Endpoints:
 
-### main endpoint
+### **main endpoint**
 #### http://localhost:3000/
 
-### image endpoint
+### **image endpoint**
 
 #### [ to display original image ]:
 ##### http://localhost:3000/image?filename=imagename
@@ -16,10 +16,10 @@
 ---> width and height must be a number more than 0 <---
 
 ### **Avilable images:**
-#### * encenadaport
-#### * fjord
-#### * icelandwaterfall
-#### * santamonica
-#### * palmtunnel
+##### * encenadaport
+##### * fjord
+##### * icelandwaterfall
+##### * santamonica
+##### * palmtunnel
 
 ## Scripts:
